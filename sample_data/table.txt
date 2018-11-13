@@ -1,0 +1,7 @@
+sample		species	 file
+cclaro1_a24	strainA		 ../assemblies/cclaro1.ctg.fasta
+cclaro1_a23	strainA		 ../assemblies/cclaro2.ctg.fasta
+cclaro1_a22	strainA		 ../assemblies/cclaro3.ctg.fasta
+cclaro1_a21	strainB		 ../assemblies/cclaro4.ctg.fasta
+cclaro1_a20	strainB		 ../assemblies/cclaro5.ctg.fasta
+cclaro1_a19	strainB		 ../assemblies/cclaro6.ctg.fasta
