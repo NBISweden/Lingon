@@ -1,0 +1,76 @@
+
+>grammar = workflow/grammars/merge_assemblies.gram
+>grammar = workflow/grammars/mkdir.gram
+>grammar = workflow/grammars/cat.gram
+
+>collapse table species
+
+
+
+set -e
+
+
+
+
+@infile = @table.species + .fasta
+
+concatenate to @infile @table.file > @out
+
+rename fasta headers in @out > @out
+
+@output = @table.species + _out
+
+make directory @output
+
+
+ >loop 10
+merge one round @out folder @output size 3 motif CATG > @out
+ <loop
+
+ >loop 10
+ merge one round @out folder @output size 3 motif CTAG > @out
+ <loop
+ 
+ >loop 10
+ merge one round @out folder @output size 3 motif GTAC > @out
+ <loop
+
+ >loop 10
+ merge one round @out folder @output size 3 motif GATC > @out
+ <loop
+ 
+ >loop 10
+ merge one round @out folder @output size 4 motif TATA > @out
+ <loop
+
+ >loop 10
+ merge one round @out folder @output size 4 motif ATAT > @out
+ <loop
+ 
+ >loop 10
+ merge one round @out folder @output size 5 motif GC > @out
+ <loop
+ 
+ 
+# merge one round @out folder @output size 3 motif CATG > @out
+# merge one round @out folder @output size 3 motif CATG > @out
+# merge one round @out folder @output size 3 motif CATG > @out
+# merge one round @out folder @output size 3 motif CATG > @out
+# merge one round @out folder @output size 3 motif CATG > @out
+
+# merge one round @out folder @output size 3 motif CTAG > @out
+# merge one round @out folder @output size 3 motif CTAG > @out
+# merge one round @out folder @output size 3 motif CTAG > @out
+
+# merge one round @out folder @output size 3 motif GTAC > @out
+# merge one round @out folder @output size 3 motif GTAC > @out
+# merge one round @out folder @output size 3 motif GTAC > @out
+
+# merge one round @out folder @output size 4 motif TATA > @out
+# merge one round @out folder @output size 4 motif TATA > @out
+# merge one round @out folder @output size 4 motif TATA > @out
+# merge one round @out folder @output size 4 motif TATA > @out
+
+# merge one round @out folder @output size 4 motif ATAT > @out
+# merge one round @out folder @output size 4 motif ATAT > @out
+# merge one round @out folder @output size 4 motif ATAT > @out
