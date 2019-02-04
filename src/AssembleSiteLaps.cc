@@ -81,6 +81,14 @@ bool Equal(int a, int b)
   return false;
 }
 
+string Strip(const string & s) {
+  string out = s;
+  if (s[0] == '>')
+    out = &s[1];
+  return out;
+}
+
+
 int main( int argc, char** argv )
 {
 
@@ -169,7 +177,7 @@ int main( int argc, char** argv )
     if (g.bN == l.aN || g.sites == l.sites) {
       cout << "Found maximal mutal pair, merging " << l.aN << " " << l.bN << endl;
       Merge(a, b, l);
-      string name = l.aN + l.bN;
+      string name = ">" + Strip(l.aN) + "_" + Strip(l.bN);
       cout << "New contig: " << name << endl;
       dna.SetName(i, name);
     }
